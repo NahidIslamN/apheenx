@@ -1,9 +1,10 @@
 from django.conf import settings
 from django.db import models
 from decimal import Decimal
+
 User = settings.AUTH_USER_MODEL
 
-# write your models here
+# Write your models here
 
 class Image(models.Model):
     image = models.ImageField(upload_to="products/")
@@ -39,7 +40,7 @@ class Product(models.Model):
     )
 
     stock_quantity = models.PositiveIntegerField(default=0)
-
+    
     category = models.CharField(
         max_length=50,
         choices=CATEGORY_CHOICES,
@@ -69,7 +70,6 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.product_name} - {self.price}"
     
-
 
 class Orders(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

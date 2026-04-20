@@ -5,6 +5,7 @@ from django.core.validators import FileExtensionValidator
 User = settings.AUTH_USER_MODEL
 
 
+
 class VideoMedia(models.Model):
     file = models.FileField(
         upload_to="videos/",
@@ -19,6 +20,7 @@ class VideoMedia(models.Model):
 
     def __str__(self):
         return self.file.name
+
 
 
 class Video(models.Model):
@@ -69,13 +71,12 @@ class Video(models.Model):
 
     subscribers = models.ManyToManyField(
         User,
-        related_name='subscribed_videos',
+        related_name='subscribers',
         blank=True
     )
 
     is_featured = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
