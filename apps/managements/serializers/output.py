@@ -17,3 +17,23 @@ class ProductViewSerialzierAdmin(serializers.ModelSerializer):
         model = Product
         fields = "__all__"
         read_only_fields = ["created_at", "updated_at"]
+    
+
+
+
+
+class VideoMediaSeriazer(serializers.ModelSerializer):
+    class Meta:
+        model = VideoMedia
+        fields = "__all__"
+        read_only_fields = ["created_at", "updated_at"]
+
+
+class VideoOutputSerialzerAdmin(serializers.ModelSerializer):
+    trailers = VideoMediaSeriazer(many=True, read_only=True)
+    videos = VideoMediaSeriazer(many=True, read_only=True)
+
+    class Meta:
+        model = Video
+        fields = "__all__"
+        read_only_fields = ["created_at", "updated_at"]
