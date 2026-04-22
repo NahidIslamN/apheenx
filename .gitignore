@@ -73,5 +73,11 @@ audite.md
 models.py
 cmd.md
 
-.public/static/videos/
-.public/static/thumbnails/
+# Ignore built/static assets and uploaded media
+/public/static/
+/static/
+/media/
+/public/media/
+/public/static/videos/
+/public/static/thumbnails/
+public/static/
